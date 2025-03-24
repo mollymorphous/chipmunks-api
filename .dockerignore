@@ -1,0 +1,23 @@
+# Dotenv files and templates
+**/.env
+**/.env.*
+
+# SQLite databases
+**/*.db
+
+# Git and repo config
+.git
+.github
+.vscode
+
+# Virtual environment
+.venv
+
+# Compiled bytecode
+**/__pycache__
+**/*.pyc
+**/*.pyo
+**/*.pyd
+
+# Python tool caches
+.*_cache
