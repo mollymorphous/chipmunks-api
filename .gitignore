@@ -1,0 +1,15 @@
+# Dotenv
+.env
+
+# SQLite databases
+*.db
+
+# Virtual environment
+.venv
+
+# Compiled bytecode
+__pycache__
+*.py[cod]
+
+# Python tool caches
+.*_cache
