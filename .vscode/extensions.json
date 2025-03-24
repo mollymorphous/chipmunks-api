@@ -1,5 +1,6 @@
 {
     "recommendations": [
+        "charliermarsh.ruff",
         "ms-python.debugpy",
         "ms-python.python",
         "seatonjiang.gitmoji-vscode"
