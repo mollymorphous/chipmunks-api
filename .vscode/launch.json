@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Chipmunks API",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "granian",
+            "args": [
+                "app.main",
+                "--url-path-prefix=/api/v1",
+                "--interface=asgi",
+                "--access-log",
+                "--reload",
+                "--reload-ignore-worker-failure",
+                "--reload-paths=app"
+            ],
+            "jinja": false
+        }
+    ]
+}
