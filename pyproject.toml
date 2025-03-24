@@ -11,10 +11,14 @@ classifiers = [
     "Private :: Do Not Upload",
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "fastapi>=0.115.12",
+    "granian>=2.2.0",
+]
 
 [dependency-groups]
 dev = [
+    "granian[reload]>=2.2.0",
     "mypy[faster-cache]>=1.15.0",
     "ruff>=0.11.2",
 ]
