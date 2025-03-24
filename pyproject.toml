@@ -15,5 +15,10 @@ dependencies = []
 
 [dependency-groups]
 dev = [
+    "mypy[faster-cache]>=1.15.0",
     "ruff>=0.11.2",
 ]
+
+[tool.mypy]
+strict = true
+packages = ["app"]
