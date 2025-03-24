@@ -1,6 +1,7 @@
 {
     "mypy-type-checker.ignorePatterns": [
-        "**/site-packages/**/*.py"
+        "**/site-packages/**/*.py",
+        "**/tests/**.py"
     ],
     "mypy-type-checker.importStrategy": "fromEnvironment",
     "[python]": {
@@ -9,5 +10,10 @@
         "editor.codeActionsOnSave": {
             "source.organizeImports": "explicit"
         }
-    }
+    },
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
 }
