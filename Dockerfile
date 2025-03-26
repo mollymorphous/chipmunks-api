@@ -48,9 +48,11 @@ FROM base AS dev
 # Development environment variables
 #
 # * Granian: Set up hot reload
+# * Return debug tracebacks to the client on server errors
 ENV GRANIAN_RELOAD=true \
     GRANIAN_RELOAD_IGNORE_WORKER_FAILURE=true \
-    GRANIAN_RELOAD_PATHS=app
+    GRANIAN_RELOAD_PATHS=app \
+    CHIPMUNKS_DEBUG_TRACEBACKS=true
 
 # Install uv
 COPY --from=uv /uv /uvx /usr/local/bin/
