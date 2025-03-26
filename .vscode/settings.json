@@ -1,4 +1,7 @@
 {
+    "files.exclude": {
+        "**/.*_cache": true
+    },
     "mypy-type-checker.ignorePatterns": [
         "**/site-packages/**/*.py",
         "**/tests/**.py"
