@@ -44,3 +44,6 @@ addopts = "-q -ra"
 asyncio_default_fixture_loop_scope = "function"
 asyncio_mode = "auto"
 testpaths = ["tests"]
+
+[tool.pytest_env]
+CHIPMUNKS_DATABASE_URL = "sqlite://"
