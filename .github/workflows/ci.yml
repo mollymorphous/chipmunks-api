@@ -8,7 +8,7 @@ on:
 
 jobs:
   lint:
-    name: Lint (ruff)
+    name: Lint
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -30,7 +30,7 @@ jobs:
 
 
   type_check:
-    name: Type Check (mypy)
+    name: Type Check
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -61,7 +61,7 @@ jobs:
 
   
   unit_test:
-    name: Unit Test (pytest)
+    name: Unit Test
     runs-on: ubuntu-latest
     permissions:
       contents: read
