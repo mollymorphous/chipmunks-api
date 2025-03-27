@@ -1,0 +1,84 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  lint:
+    name: Lint (ruff)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run ruff check
+        uses: astral-sh/ruff-action@v3
+        with:
+          args: check
+          version-file: pyproject.toml
+
+      - name: Run ruff format
+        uses: astral-sh/ruff-action@v3
+        with:
+          args: format --check
+          version-file: pyproject.toml
+
+
+  type_check:
+    name: Type Check (mypy)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+          
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Set up mypy cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/.mypy_cache
+          key: ${{ runner.os }}-${{ runner.arch }}-mypy-${{ hashFiles('uv.lock') }}-${{ hashFiles('app/**') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ runner.arch }}-mypy-${{ hashFiles('uv.lock') }}-
+      
+      - name: Run mypy
+        run: uv run --frozen mypy
+
+  
+  unit_test:
+    name: Unit Test (pytest)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+          
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      
+      - name: Run pytest
+        run: uv run --frozen pytest
+
