@@ -46,4 +46,4 @@ asyncio_mode = "auto"
 testpaths = ["tests"]
 
 [tool.pytest_env]
-CHIPMUNKS_DATABASE_URL = "sqlite://"
+CHIPMUNKS_API_DATABASE_URL = "sqlite://"
