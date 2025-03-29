@@ -33,7 +33,7 @@ ENV PATH="/srv/chipmunks/api/.venv/bin:$PATH" \
 EXPOSE 8080
 
 # Serve the app with Granian
-CMD [ "granian", "app.main" ]
+ENTRYPOINT [ "granian", "app.main" ]
 
 # Add minimum files to install dependencies, plus the license because it's static
 COPY pyproject.toml uv.lock LICENSE.txt ./
